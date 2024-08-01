@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #videoContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="videoContainer">
+        <video autoplay>
+            <source src="/Users/apple/Downloads/enfrancaisaupluriel/video/loading.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <script>
+        document.querySelector('video').play().catch(function(error) {
+            console.log('Autoplay was prevented:', error);
+            // Autoplay might have been prevented, so manually play on user interaction
+            document.body.addEventListener('click', function() {
+                document.querySelector('video').play();
+            });
+        });
+    </script>
+</body>
+</html>
